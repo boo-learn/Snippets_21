@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
 from MainApp.forms import SnippetForm
@@ -22,6 +23,7 @@ def snippet_detail(request, snippet_id):
     return render(request, 'pages/snippet_detail.html', context)
 
 
+@login_required
 def add_snippet_page(request):
     if request.method == "GET":  # нужна страница с формой
         form = SnippetForm()
@@ -34,6 +36,13 @@ def add_snippet_page(request):
             snippet.user = request.user
             snippet.save()
             return redirect("snippet-list")
+
+
+@login_required
+def snippets_my(request):
+    my_snippets = Snippet.objects.filter(user=request.user)
+    context = {'pagename': 'Мои сниппеты', 'snippets': my_snippets}
+    return render(request, 'pages/view_snippets.html', context)
 
 
 def login_page(request):
@@ -53,4 +62,4 @@ def login_page(request):
 
 def logout(request):
     auth.logout(request)
-    return redirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect('home')
