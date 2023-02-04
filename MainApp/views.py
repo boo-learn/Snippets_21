@@ -45,6 +45,12 @@ def snippets_my(request):
     return render(request, 'pages/view_snippets.html', context)
 
 
+def snippet_delete(request, snippet_id):
+    snippet = Snippet.objects.get(pk=snippet_id)
+    snippet.delete()
+    return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def login_page(request):
     if request.method == 'POST':
         username = request.POST.get("username")
