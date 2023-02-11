@@ -19,6 +19,8 @@ class Snippet(models.Model):
 
     # class Meta:
     #     ordering = ["name", "-creation_date"]
+    def __str__(self):
+        return f"Snippet {self.name} | {self.user}"
 
 
 class Comment(models.Model):
