@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from MainApp.forms import SnippetForm
+from MainApp.forms import SnippetForm, CommentForm
 
 
 def index_page(request):
@@ -19,7 +19,12 @@ def snippets_page(request):
 
 def snippet_detail(request, snippet_id):
     snippet = Snippet.objects.get(pk=snippet_id)
-    context = {'pagename': 'Страница сниппета', 'snippet': snippet}
+    comment_form = CommentForm()
+    context = {
+        'pagename': 'Страница сниппета',
+        'snippet': snippet,
+        'comment_form': comment_form,
+    }
     return render(request, 'pages/snippet_detail.html', context)
 
 
@@ -50,6 +55,19 @@ def snippet_delete(request, snippet_id):
     snippet.delete()
     return redirect(request.META.get('HTTP_REFERER', '/'))
 
+
+@login_required()
+def add_comment(request):
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            snippet_id = request.POST['snippet_id']
+            snippet = Snippet.objects.get(pk=snippet_id)
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.snippet = snippet
+            comment.save()
+            return redirect(request.META.get('HTTP_REFERER', '/'))
 
 def login_page(request):
     if request.method == 'POST':

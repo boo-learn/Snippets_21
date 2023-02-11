@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 LANG_CHOICE = (
     ('py', 'python'),
     ('js', 'JavaScript'),
@@ -18,3 +17,9 @@ class Snippet(models.Model):
                              blank=True, null=True)
     # public = models.BooleanField()
 
+
+class Comment(models.Model):
+    text = models.TextField(max_length=1000)
+    creation_date = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE)

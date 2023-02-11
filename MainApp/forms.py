@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput, Textarea
-from MainApp.models import Snippet
+from MainApp.models import Snippet, Comment
 
 
 class SnippetForm(ModelForm):
@@ -11,4 +11,14 @@ class SnippetForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={'placeholder': 'Название сниппета'}),
             'code': Textarea(attrs={'placeholder': 'Код сниппета'}),
+        }
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        labels = {'text': ''}
+        widgets = {
+            'text': Textarea(attrs={'placeholder': 'Текст комментария'})
         }
