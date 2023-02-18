@@ -16,6 +16,8 @@ class Snippet(models.Model):
     creation_date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(to=User, on_delete=models.CASCADE,
                              blank=True, null=True, related_name="snippets")
+    likes = models.ManyToManyField(to=User, blank=True, related_name="likes")
+    dislike = models.ManyToManyField(to=User, blank=True, related_name="dislike")
 
     def __str__(self):
         return f"Snippet {self.name} | {self.user}"
