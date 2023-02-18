@@ -1,0 +1,100 @@
+[
+  {
+    "model": "MainApp.lang",
+    "pk": 1,
+    "fields": {
+      "name": "python"
+    }
+  },
+  {
+    "model": "MainApp.lang",
+    "pk": 2,
+    "fields": {
+      "name": "JavaScript"
+    }
+  },
+  {
+    "model": "MainApp.lang",
+    "pk": 3,
+    "fields": {
+      "name": "C++"
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+      "name": "Js snippet",
+      "lang": 2,
+      "code": "code...",
+      "creation_date": "2023-02-18T09:59:53.742Z",
+      "user": 1
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+      "name": "Admin snippet-2",
+      "lang": 2,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:17:48.772Z",
+      "user": 1
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 3,
+    "fields": {
+      "name": "Admin's snippet-3",
+      "lang": 1,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:18:03.814Z",
+      "user": 1
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 4,
+    "fields": {
+      "name": "user1 snippet-1",
+      "lang": 2,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:17:48.772Z",
+      "user": 2
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 5,
+    "fields": {
+      "name": "user1 snippet-2",
+      "lang": 1,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:18:03.814Z",
+      "user": 2
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 6,
+    "fields": {
+      "name": "user2 snippet-1",
+      "lang": 2,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:17:48.772Z",
+      "user": 3
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 7,
+    "fields": {
+      "name": "user2 snippet-2",
+      "lang": 1,
+      "code": "code...",
+      "creation_date": "2023-02-18T12:18:03.814Z",
+      "user": 3
+    }
+  }
+]

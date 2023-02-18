@@ -1,0 +1,74 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$ZgCUvP7V4hyp6WDUpoAPP5$/HlYfamDRdyalVKv/MQg5V4YgZ31XGCfx2lUlupdYE4=",
+      "last_login": "2023-02-18T09:36:01.556Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-02-18T09:35:24.676Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$ZgCUvP7V4hyp6WDUpoAPP5$/HlYfamDRdyalVKv/MQg5V4YgZ31XGCfx2lUlupdYE4=",
+      "last_login": "2023-02-18T09:36:01.556Z",
+      "is_superuser": true,
+      "username": "user1",
+      "first_name": "",
+      "last_name": "",
+      "email": "user1@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-02-18T09:35:24.676Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$ZgCUvP7V4hyp6WDUpoAPP5$/HlYfamDRdyalVKv/MQg5V4YgZ31XGCfx2lUlupdYE4=",
+      "last_login": "2023-02-18T09:36:01.556Z",
+      "is_superuser": true,
+      "username": "user2",
+      "first_name": "",
+      "last_name": "",
+      "email": "user2@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-02-18T09:35:24.676Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$ZgCUvP7V4hyp6WDUpoAPP5$/HlYfamDRdyalVKv/MQg5V4YgZ31XGCfx2lUlupdYE4=",
+      "last_login": "2023-02-18T09:36:01.556Z",
+      "is_superuser": true,
+      "username": "user3",
+      "first_name": "",
+      "last_name": "",
+      "email": "user3@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-02-18T09:35:24.676Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

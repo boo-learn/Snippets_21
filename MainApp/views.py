@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
 from MainApp.forms import SnippetForm, CommentForm, UserRegistrationForm, LangForm
+from django.db.models import Count
+from django.contrib.auth.models import User
 
 
 def index_page(request):
@@ -14,16 +16,21 @@ def index_page(request):
 def snippets_page(request):
     lang = request.GET.get("lang")
     sort = request.GET.get("sort")
+    user_id = request.GET.get("user_id")
     snippets = Snippet.objects.all()
+    users = User.objects.all().annotate(num_snippets=Count('snippets')).exclude(num_snippets=0)
     if lang:
         snippets = snippets.filter(lang=lang)
     if sort:
         snippets = snippets.order_by(sort)
+    if user_id:
+        snippets = snippets.filter(user__id=user_id)
     context = {
         'pagename': 'Просмотр сниппетов',
         'snippets': snippets,
         'lang': lang,
-        'sort': sort
+        'sort': sort,
+        'users': users
     }
     return render(request, 'pages/view_snippets.html', context)
 
