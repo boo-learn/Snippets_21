@@ -1,0 +1,95 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$pe6Uj7elbAf3Mk6wZtQYhP$aNgbeqrQcWqDoIhv+2gvJywe+6Mi5w678pK8FJCMFUg=",
+      "last_login": "2023-02-11T13:23:35.736Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@mail.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-02-04T11:10:27.100Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 1,
+    "fields": {
+      "name": "Hello world",
+      "lang": "py",
+      "code": "print('hello')",
+      "creation_date": "2023-02-04T07:27:58.605Z",
+      "user": null
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 2,
+    "fields": {
+      "name": "Snippet-2",
+      "lang": "js",
+      "code": "Simple js code!",
+      "creation_date": "2023-02-04T07:29:21.579Z",
+      "user": null
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 7,
+    "fields": {
+      "name": "Snippet-6",
+      "lang": "js",
+      "code": "js snippet code",
+      "creation_date": "2023-02-04T09:42:23.054Z",
+      "user": null
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 8,
+    "fields": {
+      "name": "Admin's snippet-1",
+      "lang": "py",
+      "code": "Code snippet...",
+      "creation_date": "2023-02-04T11:51:40.179Z",
+      "user": 1
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "pk": 9,
+    "fields": {
+      "name": "Snippet-С++",
+      "lang": "cpp",
+      "code": "Какой-то код",
+      "creation_date": "2023-02-11T09:43:12.580Z",
+      "user": 1
+    }
+  },
+  {
+    "model": "MainApp.comment",
+    "pk": 1,
+    "fields": {
+      "text": "Первый комментарий!",
+      "creation_date": "2023-02-11T08:00:54.822Z",
+      "author": 1,
+      "snippet": 2
+    }
+  },
+  {
+    "model": "MainApp.comment",
+    "pk": 5,
+    "fields": {
+      "text": "Новый комментарий",
+      "creation_date": "2023-02-11T09:31:18.829Z",
+      "author": 1,
+      "snippet": 2
+    }
+  }
+]
