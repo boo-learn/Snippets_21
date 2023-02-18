@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from MainApp.forms import SnippetForm, CommentForm
+from MainApp.forms import SnippetForm, CommentForm, UserRegistrationForm
 
 
 def index_page(request):
@@ -79,6 +79,22 @@ def add_comment(request):
             comment.snippet = snippet
             comment.save()
             return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def register(request):
+    if request.method == 'GET': # получить страницу с формой
+        form = UserRegistrationForm()
+        context = {
+            "pagename": "Регистрация",
+            "form": form
+        }
+        return render(request, 'pages/registration.html', context)
+    if request.method == 'POST': # хотим создать пользователя(данные от формы)
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
 
 def login_page(request):
     if request.method == 'POST':
