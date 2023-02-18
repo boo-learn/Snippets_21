@@ -91,10 +91,14 @@ def register(request):
         return render(request, 'pages/registration.html', context)
     if request.method == 'POST': # хотим создать пользователя(данные от формы)
         form = UserRegistrationForm(request.POST)
+        context = {
+            "pagename": "Регистрация",
+            "form": form
+        }
         if form.is_valid():
             form.save()
             return redirect('home')
-
+        return render(request, 'pages/registration.html', context)
 
 def login_page(request):
     if request.method == 'POST':

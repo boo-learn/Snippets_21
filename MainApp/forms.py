@@ -35,6 +35,13 @@ class UserRegistrationForm(ModelForm):
     password1 = CharField(label="password", widget=PasswordInput)
     password2 = CharField(label="password confirm", widget=PasswordInput)
 
+    # def clean_username(self):
+    #     if len(self.cleaned_data["username"]) < 5:
+    #         raise ValidationError("Длина должна быть >= 5")
+    #     if not self.cleaned_data["username"][0].isupper():
+    #         raise ValidationError("Первый симол должен быть БОЛЬШОЙ")
+    #     return self.cleaned_data["username"]
+
     def clean_password2(self):
         pass1 = self.cleaned_data.get("password1")
         pass2 = self.cleaned_data.get("password2")
