@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page, name='home'),
     path('snippets/add', views.add_snippet_page, name="snippet-add"),
+    path('langs/add', views.add_lang, name="lang-add"),
     path('snippets/list', views.snippets_page, name="snippet-list"),
     path('snippets/my', views.snippets_my, name="snippet-my"),
     path('snippet/<int:snippet_id>', views.snippet_detail, name="snippet-detail"),

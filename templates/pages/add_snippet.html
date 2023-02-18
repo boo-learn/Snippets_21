@@ -12,7 +12,15 @@
             <div class="col">
                 <form action="" method="post">{% csrf_token %}
                     <table>
-                        {{ form }}
+{#                        {{ form }}#}
+                        <tr><td>{{ form.name }}</td></tr>
+                        <tr>
+                            <td>
+                                {{ form.lang }}
+                                <a href="{% url 'lang-add' %}"> <i class="fa-solid fa-circle-plus"></i></a>
+                            </td>
+                        </tr>
+                        <tr><td>{{ form.code }}</td></tr>
                     </table>
                     <button type="submit">Сохранить</button>
                 </form>

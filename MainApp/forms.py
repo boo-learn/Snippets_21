@@ -1,8 +1,15 @@
 from django.forms import ModelForm, TextInput, Textarea
-from MainApp.models import Snippet, Comment
+from MainApp.models import Snippet, Comment, Lang
 from django.contrib.auth.models import User
 from django.forms import CharField, PasswordInput
 from django.core.exceptions import ValidationError
+
+
+class LangForm(ModelForm):
+    class Meta:
+        model = Lang
+        # Описываем поля, которые будем заполнять в форме
+        fields = ['name']
 
 
 class SnippetForm(ModelForm):

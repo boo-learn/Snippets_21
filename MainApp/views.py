@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from MainApp.forms import SnippetForm, CommentForm, UserRegistrationForm
+from MainApp.forms import SnippetForm, CommentForm, UserRegistrationForm, LangForm
 
 
 def index_page(request):
@@ -52,6 +52,18 @@ def add_snippet_page(request):
             snippet.user = request.user
             snippet.save()
             return redirect("snippet-list")
+
+
+def add_lang(request):
+    if request.method == "GET":  # нужна страница с формой
+        form = LangForm()
+        context = {'pagename': 'Добавление нового языка', 'form': form}
+        return render(request, 'pages/add_lang.html', context)
+    if request.method == "POST":  # получаем данные от формы
+        form = LangForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("snippet-add")
 
 
 @login_required
